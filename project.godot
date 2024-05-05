@@ -13,4 +13,11 @@ config_version=5
 config/name="bc3"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://assets/images/preview.png"
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1170
+window/size/viewport_height=1078
+window/stretch/scale=2.0

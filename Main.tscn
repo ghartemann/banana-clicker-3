@@ -7,25 +7,35 @@ script = ExtResource("1_yr7i7")
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
-[node name="LabelBananas" type="Label" parent="."]
-custom_minimum_size = Vector2(200, 200)
+[node name="MainGrid" type="GridContainer" parent="."]
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+
+[node name="GridButtons" type="GridContainer" parent="MainGrid"]
+layout_mode = 2
+
+[node name="ButtonMain" type="Button" parent="MainGrid/GridButtons"]
+layout_mode = 2
+text = "Clique"
+
+[node name="ButtonMain2" type="Button" parent="MainGrid/GridButtons"]
+layout_mode = 2
+
+[node name="GridLabels" type="GridContainer" parent="MainGrid"]
+layout_mode = 2
+
+[node name="LabelBananas" type="Label" parent="MainGrid/GridLabels"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
 theme_type_variation = &"HeaderLarge"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonMain" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
-
-[node name="LabelBps" type="Label" parent="."]
+[node name="LabelBps" type="Label" parent="MainGrid/GridLabels"]
 custom_minimum_size = Vector2(100, 100)
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LabelBpc" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="LabelBpc" type="Label" parent="MainGrid/GridLabels"]
+layout_mode = 2
