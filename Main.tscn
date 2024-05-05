@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://sfhmwfbin41u"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1_yr7i7"]
+[ext_resource type="Script" path="res://Label.gd" id="2_ereho"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yr7i7")
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_ereho")
