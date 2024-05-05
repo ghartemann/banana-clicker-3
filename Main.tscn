@@ -1,14 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://sfhmwfbin41u"]
+[gd_scene load_steps=2 format=3 uid="uid://sfhmwfbin41u"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_yr7i7"]
-[ext_resource type="Script" path="res://Label.gd" id="2_ereho"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_yr7i7")
 
 [node name="ScoreTimer" type="Timer" parent="."]
 
-[node name="Label" type="Label" parent="."]
+[node name="LabelBananas" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 200)
 offset_right = 40.0
 offset_bottom = 23.0
-script = ExtResource("2_ereho")
+theme_type_variation = &"HeaderLarge"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonMain" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="LabelBps" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 40.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelBpc" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
