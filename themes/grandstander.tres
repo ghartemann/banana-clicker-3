@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://7kyyo03hlynl"]
+
+[ext_resource type="FontFile" uid="uid://bnfk2vrosudc6" path="res://assets/fonts/Grandstander/static/Grandstander-Regular.ttf" id="1_m8nri"]
+
+[resource]
+default_font = ExtResource("1_m8nri")

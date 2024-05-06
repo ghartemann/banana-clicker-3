@@ -15,7 +15,7 @@ var bps: float = 1:
 	get:
 		return bps
 
-var bpc: float = 10:
+var bpc: float = 1:
 	set(new_val):
 		bpc = new_val
 		%LabelBpc.value = bpc
@@ -25,7 +25,9 @@ var bpc: float = 10:
 
 #################### Inbuilt functions
 func _ready():
-	pass
+	bananas = bananas
+	bps = bps
+	bpc = bpc
 
 func _process(delta):
 	increment_via_bps(delta)
@@ -43,3 +45,11 @@ func increment_via_bpc():
 
 func _on_button_main_pressed():
 	increment_via_bpc()
+
+
+func _on_button_pressed():
+	buy_clicker(100, 5)
+
+func buy_clicker(price, clicker_bps):
+	bananas = bananas - price
+	bps = bps + clicker_bps

@@ -1,49 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://sfhmwfbin41u"]
+[gd_scene load_steps=8 format=3 uid="uid://sfhmwfbin41u"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_yr7i7"]
 [ext_resource type="Script" path="res://LabelBananas.gd" id="2_ndeyg"]
+[ext_resource type="Theme" uid="uid://7kyyo03hlynl" path="res://themes/grandstander.tres" id="3_1e2pw"]
 [ext_resource type="Script" path="res://LabelBps.gd" id="3_skv5g"]
 [ext_resource type="Script" path="res://LabelBpc.gd" id="4_5hgmb"]
+[ext_resource type="Texture2D" uid="uid://cssnxv45rixml" path="res://assets/images/bananabg.jpg" id="5_3k0we"]
+[ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/banane.png" id="7_qbo85"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_yr7i7")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_3k0we")
+centered = false
+
 [node name="MainGrid" type="GridContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 951.0
+offset_bottom = 601.0
+columns = 3
 
-[node name="GridButtons" type="GridContainer" parent="MainGrid"]
+[node name="ClickerSection" type="BoxContainer" parent="MainGrid"]
 layout_mode = 2
+vertical = true
 
-[node name="ButtonMain" type="Button" parent="MainGrid/GridButtons"]
-unique_name_in_owner = true
+[node name="Label" type="Label" parent="MainGrid/ClickerSection"]
 layout_mode = 2
-text = "Clique"
+text = "Ici c'est la section des boutons qui achètent des choses"
 
-[node name="GridLabels" type="GridContainer" parent="MainGrid"]
+[node name="Button" type="Button" parent="MainGrid/ClickerSection"]
 layout_mode = 2
-
-[node name="LabelBananas" type="Label" parent="MainGrid/GridLabels"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme_type_variation = &"HeaderLarge"
 text = "test"
+
+[node name="MainSection" type="BoxContainer" parent="MainGrid"]
+layout_mode = 2
+vertical = true
+
+[node name="ButtonMain" type="Button" parent="MainGrid/MainSection"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+icon = ExtResource("7_qbo85")
+icon_alignment = 1
+
+[node name="LabelBananas" type="Label" parent="MainGrid/MainSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_1e2pw")
+theme_type_variation = &"HeaderLarge"
+text = "BANANES
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_ndeyg")
 
-[node name="LabelBps" type="Label" parent="MainGrid/GridLabels"]
+[node name="LabelBps" type="Label" parent="MainGrid/MainSection"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+text = "BPS"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_skv5g")
 
-[node name="LabelBpc" type="Label" parent="MainGrid/GridLabels"]
+[node name="LabelBpc" type="Label" parent="MainGrid/MainSection"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("3_1e2pw")
+text = "BPC"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("4_5hgmb")
 
-[connection signal="pressed" from="MainGrid/GridButtons/ButtonMain" to="." method="_on_button_main_pressed"]
+[node name="BuffSection" type="BoxContainer" parent="MainGrid"]
+layout_mode = 2
+
+[connection signal="pressed" from="MainGrid/ClickerSection/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainGrid/MainSection/ButtonMain" to="." method="_on_button_main_pressed"]
