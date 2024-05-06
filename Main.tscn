@@ -1,38 +1,110 @@
-[gd_scene load_steps=8 format=3 uid="uid://sfhmwfbin41u"]
+[gd_scene load_steps=19 format=3 uid="uid://sfhmwfbin41u"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_yr7i7"]
 [ext_resource type="Script" path="res://LabelBananas.gd" id="2_ndeyg"]
 [ext_resource type="Theme" uid="uid://7kyyo03hlynl" path="res://themes/grandstander.tres" id="3_1e2pw"]
+[ext_resource type="Theme" uid="uid://cgrxveliicbi8" path="res://themes/button.tres" id="3_oi8hm"]
 [ext_resource type="Script" path="res://LabelBps.gd" id="3_skv5g"]
 [ext_resource type="Script" path="res://LabelBpc.gd" id="4_5hgmb"]
+[ext_resource type="Script" path="res://ButtonAutoclicker.gd" id="4_sxruh"]
 [ext_resource type="Texture2D" uid="uid://cssnxv45rixml" path="res://assets/images/bananabg.jpg" id="5_3k0we"]
+[ext_resource type="Script" path="res://ButtonBananier.gd" id="5_myy1b"]
 [ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/banane.png" id="7_qbo85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sqhdg"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.137255, 0.670588, 0.368627, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwker"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.952941, 0.611765, 0.0705882, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l6u5"]
+bg_color = Color(0.027451, 0.713726, 0.435294, 0.45098)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ind8x"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6pv3"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4prex"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_walot"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0owd7"]
+draw_center = false
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_yr7i7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.3, 0.3)
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -3289.0
+offset_top = -2076.0
+offset_right = 2711.0
+offset_bottom = 1924.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("5_3k0we")
-centered = false
 
 [node name="MainGrid" type="GridContainer" parent="."]
-offset_right = 951.0
-offset_bottom = 601.0
+offset_left = 156.0
+offset_top = 26.0
+offset_right = 898.0
+offset_bottom = 627.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
 columns = 3
 
 [node name="ClickerSection" type="BoxContainer" parent="MainGrid"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 vertical = true
 
-[node name="Label" type="Label" parent="MainGrid/ClickerSection"]
+[node name="ButtonAutoclicker" type="Button" parent="MainGrid/ClickerSection"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Ici c'est la section des boutons qui achètent des choses"
+theme = ExtResource("3_oi8hm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sqhdg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwker")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3l6u5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ind8x")
+text = "Acheter un clicker"
+script = ExtResource("4_sxruh")
 
-[node name="Button" type="Button" parent="MainGrid/ClickerSection"]
+[node name="ButtonBananier" type="Button" parent="MainGrid/ClickerSection"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "test"
+theme = ExtResource("3_oi8hm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sqhdg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cwker")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3l6u5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ind8x")
+text = "Acheter un clicker"
+script = ExtResource("5_myy1b")
 
 [node name="MainSection" type="BoxContainer" parent="MainGrid"]
 layout_mode = 2
@@ -42,6 +114,10 @@ vertical = true
 unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_i6pv3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4prex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_walot")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0owd7")
 icon = ExtResource("7_qbo85")
 icon_alignment = 1
 
@@ -76,5 +152,6 @@ script = ExtResource("4_5hgmb")
 [node name="BuffSection" type="BoxContainer" parent="MainGrid"]
 layout_mode = 2
 
-[connection signal="pressed" from="MainGrid/ClickerSection/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MainGrid/ClickerSection/ButtonAutoclicker" to="." method="_on_button_autoclicker_pressed"]
+[connection signal="pressed" from="MainGrid/ClickerSection/ButtonBananier" to="." method="_on_button_bananier_pressed"]
 [connection signal="pressed" from="MainGrid/MainSection/ButtonMain" to="." method="_on_button_main_pressed"]

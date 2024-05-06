@@ -1,6 +1,7 @@
 extends Label
 
+const utils = preload("res://Utils.gd")
 var value: float = 0
 
 func _process(_delta):
-	text = 'BPS : ' + str(snapped(value, 1))
+	text = 'BPS : ' + utils.format_for_display(value)

@@ -13,10 +13,15 @@ config_version=5
 config/name="bc3"
 run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://assets/images/preview.png"
+boot_splash/image="res://assets/images/bananabg.jpg"
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
 window/stretch/scale=2.0
+mouse_cursor/custom_image="res://assets/cursors/svg/static/hand2copy.svg"
+
+[rendering]
+
+anti_aliasing/quality/msaa_2d=1
