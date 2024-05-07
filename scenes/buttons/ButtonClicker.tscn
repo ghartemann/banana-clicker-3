@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cckevm4hnnk8k"]
+[gd_scene load_steps=8 format=3 uid="uid://cckevm4hnnk8k"]
 
-[ext_resource type="Theme" uid="uid://cgrxveliicbi8" path="res://themes/button.tres" id="1_y6b6p"]
-[ext_resource type="Script" path="res://scenes/ButtonClicker.gd" id="2_k8mjg"]
+[ext_resource type="Theme" uid="uid://cgrxveliicbi8" path="res://themes/button.tres" id="1_x3m4o"]
+[ext_resource type="Script" path="res://scenes/buttons/ButtonClicker.gd" id="2_pu3a2"]
+[ext_resource type="Script" path="res://scenes/buttons/LabelValue.gd" id="3_si7yg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g428h"]
 content_margin_left = 8.0
@@ -36,19 +37,51 @@ corner_radius_bottom_left = 8
 draw_center = false
 
 [node name="ButtonClicker" type="Control"]
+custom_minimum_size = Vector2(390, 110)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+size_flags_horizontal = 0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-theme = ExtResource("1_y6b6p")
+offset_right = 390.0
+offset_bottom = 110.0
+theme = ExtResource("1_x3m4o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g428h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0h6cv")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_eimq6")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rhswt")
-text = "Acheter un clicker"
-script = ExtResource("2_k8mjg")
+script = ExtResource("2_pu3a2")
+
+[node name="LabelText" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 124.0
+offset_bottom = 42.0
+text = "LabelText"
+
+[node name="LabelPrice" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 69.0
+offset_right = 123.0
+offset_bottom = 92.0
+text = "LabelPrice"
+
+[node name="LabelOwned" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 16.0
+offset_right = 336.0
+offset_bottom = 39.0
+text = "LabelOwned"
+
+[node name="LabelValue" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 44.0
+offset_right = 134.0
+offset_bottom = 67.0
+text = "LabelValue"
+script = ExtResource("3_si7yg")

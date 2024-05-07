@@ -1,7 +1,7 @@
-extends Node2D
+extends Control
 
-var button_clicker: PackedScene = preload("res://scenes/ButtonClicker.tscn")
-var utils = preload("res://scenes/Utils.gd")
+var button_clicker: PackedScene = preload("res://scenes/buttons/ButtonClicker.tscn")
+var utils = preload("res://scripts/Utils.gd")
 
 #################### Variables
 var bananas: float = 0:
@@ -44,17 +44,21 @@ func _process(delta):
 
 #################### Init functions
 func instantiate_buttons():
-	var imported_clickers = utils.import_json("res://scenes/clickers.json")
+	var imported_clickers = utils.import_json("res://json/clickers.json")
 
 	for clicker in imported_clickers:
 		var button = button_clicker.instantiate()
+
+		var child_button = button.get_child(0)
 		
-		button.get_child(0).clicker_name = clicker.name
-		button.get_child(0).value = clicker.value
-		button.get_child(0).type = clicker.type
-		button.get_child(0).price = clicker.price
-		button.get_child(0).price_multiplier = clicker.price_multiplier
-		button.get_child(0).disabled = clicker.disabled
+		child_button.clicker_name = clicker.name
+		child_button.value = clicker.value
+		child_button.type = clicker.type
+		child_button.price = clicker.price
+		child_button.price_multiplier = clicker.price_multiplier
+		
+		child_button.disabled = false
+		child_button.nb_owned = 0
 		
 		if clicker.type == 'bps':
 			%ClickerSection.add_child(button)
@@ -86,6 +90,9 @@ func _on_button_main_pressed():
 func disable_expensive_clickers():
 	for c in %ClickerSection.get_children():
 		c.get_child(0).disabled = bananas < c.get_child(0).price
+	
+	for b in %BuffSection.get_children():
+		b.get_child(0).disabled = bananas < b.get_child(0).price
 
 func _on_buy(type: String, value: float, price: float):
 	print('parent')

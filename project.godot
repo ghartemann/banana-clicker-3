@@ -18,6 +18,9 @@ config/icon="res://scenes/icon.svg"
 
 [display]
 
+window/size/mode=2
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://assets/cursors/static/hand2copy.svg"
 
 [rendering]

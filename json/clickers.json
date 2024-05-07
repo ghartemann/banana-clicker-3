@@ -5,8 +5,7 @@
 		"price": 100,
 		"price_multiplier": 1.15,
 		"value": 1,
-		"type": "bps",
-		"disabled": true
+		"type": "bps"
 	},
 	{
 		"name": "Bananier",
@@ -14,8 +13,7 @@
 		"price": 1100,
 		"price_multiplier": 1.15,
 		"value": 5,
-		"type": "bps",
-		"disabled": true
+		"type": "bps"
 	},
 	{
 		"name": "Main",
@@ -23,8 +21,7 @@
 		"price": 500,
 		"price_multiplier": 1.15,
 		"value": 1,
-		"type": "bpc",
-		"disabled": true
+		"type": "bpc"
 	},
 	{
 		"name": "Pied",
@@ -32,7 +29,6 @@
 		"price": 2000,
 		"price_multiplier": 1.15,
 		"value": 5,
-		"type": "bpc",
-		"disabled": true
+		"type": "bpc"
 	}
 ]

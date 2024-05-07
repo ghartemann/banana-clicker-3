@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/LabelBpc.gd" id="4_5hgmb"]
 [ext_resource type="Texture2D" uid="uid://cssnxv45rixml" path="res://assets/images/bananabg.jpg" id="5_3k0we"]
 [ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/banane.png" id="7_qbo85"]
-[ext_resource type="Script" path="res://scenes/ButtonMain.gd" id="7_yg5u7"]
+[ext_resource type="Script" path="res://scenes/buttons/ButtonMain.gd" id="7_yg5u7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6pv3"]
 draw_center = false
@@ -21,50 +21,74 @@ draw_center = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0owd7"]
 draw_center = false
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_yr7i7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -3289.0
-offset_top = -2076.0
-offset_right = 2711.0
-offset_bottom = 1924.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("5_3k0we")
+expand_mode = 3
+stretch_mode = 6
 
 [node name="MainGrid" type="GridContainer" parent="."]
-offset_left = 156.0
-offset_top = 26.0
-offset_right = 898.0
-offset_bottom = 627.0
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/h_separation = 16
+theme_override_constants/h_separation = 64
 columns = 3
 
-[node name="ClickerSection" type="BoxContainer" parent="MainGrid"]
+[node name="ClickerSection" type="VBoxContainer" parent="MainGrid"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-vertical = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="MainSection" type="BoxContainer" parent="MainGrid"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 vertical = true
 
 [node name="ButtonMain" type="Button" parent="MainGrid/MainSection"]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_i6pv3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4prex")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_walot")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0owd7")
-icon = ExtResource("7_qbo85")
 icon_alignment = 1
 script = ExtResource("7_yg5u7")
+
+[node name="TextureRect" type="TextureRect" parent="MainGrid/MainSection/ButtonMain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_qbo85")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="LabelBananas" type="Label" parent="MainGrid/MainSection"]
 unique_name_in_owner = true
@@ -94,8 +118,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_5hgmb")
 
-[node name="BuffSection" type="BoxContainer" parent="MainGrid"]
+[node name="BuffSection" type="GridContainer" parent="MainGrid"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="pressed" from="MainGrid/MainSection/ButtonMain" to="." method="_on_button_main_pressed"]
