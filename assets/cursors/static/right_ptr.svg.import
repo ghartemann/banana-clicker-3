@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://m6giv0ueic4b"
-path="res://.godot/imported/right_ptr.svg-94d17741561f60256a7c11f015a1e30b.ctex"
+path="res://.godot/imported/right_ptr.svg-9b757c45374146dba66a1866e1ed17de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/svg/static/right_ptr.svg"
-dest_files=["res://.godot/imported/right_ptr.svg-94d17741561f60256a7c11f015a1e30b.ctex"]
+source_file="res://assets/cursors/static/right_ptr.svg"
+dest_files=["res://.godot/imported/right_ptr.svg-9b757c45374146dba66a1866e1ed17de.ctex"]
 
 [params]
 

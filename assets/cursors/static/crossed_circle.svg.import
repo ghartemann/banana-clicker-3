@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7tnkosf4c3lw"
-path="res://.godot/imported/crossed_circle.svg-5f4b1a22641dc42285ca61270e8ce76b.ctex"
+path="res://.godot/imported/crossed_circle.svg-cc0b6c30b2bf6ed59ab98182a13de654.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/svg/static/crossed_circle.svg"
-dest_files=["res://.godot/imported/crossed_circle.svg-5f4b1a22641dc42285ca61270e8ce76b.ctex"]
+source_file="res://assets/cursors/static/crossed_circle.svg"
+dest_files=["res://.godot/imported/crossed_circle.svg-cc0b6c30b2bf6ed59ab98182a13de654.ctex"]
 
 [params]
 

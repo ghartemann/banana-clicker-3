@@ -11,16 +11,14 @@ config_version=5
 [application]
 
 config/name="bc3"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-boot_splash/image="res://assets/images/bananabg.jpg"
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/images/bananabg.png"
+config/icon="res://scenes/icon.svg"
 
 [display]
 
-window/size/mode=3
-window/stretch/scale=2.0
-mouse_cursor/custom_image="res://assets/cursors/svg/static/hand2copy.svg"
+mouse_cursor/custom_image="res://assets/cursors/static/hand2copy.svg"
 
 [rendering]
 

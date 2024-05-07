@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://75pg7bnudr2l"
-path="res://.godot/imported/dnd_no_drop.svg-f7bb1b943a1a256939356ebddbe11158.ctex"
+path="res://.godot/imported/dnd_no_drop.svg-1fc9112f8954a3b5353a012c1af4eb72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/svg/static/dnd_no_drop.svg"
-dest_files=["res://.godot/imported/dnd_no_drop.svg-f7bb1b943a1a256939356ebddbe11158.ctex"]
+source_file="res://assets/cursors/static/dnd_no_drop.svg"
+dest_files=["res://.godot/imported/dnd_no_drop.svg-1fc9112f8954a3b5353a012c1af4eb72.ctex"]
 
 [params]
 

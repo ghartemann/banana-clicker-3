@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://sfhmwfbin41u"]
+
+[ext_resource type="Script" path="res://scenes/Main.gd" id="1_yr7i7"]
+[ext_resource type="Script" path="res://scenes/LabelBananas.gd" id="2_ndeyg"]
+[ext_resource type="Theme" uid="uid://7kyyo03hlynl" path="res://themes/grandstander.tres" id="3_1e2pw"]
+[ext_resource type="Script" path="res://scenes/LabelBps.gd" id="3_skv5g"]
+[ext_resource type="Script" path="res://scenes/LabelBpc.gd" id="4_5hgmb"]
+[ext_resource type="Texture2D" uid="uid://cssnxv45rixml" path="res://assets/images/bananabg.jpg" id="5_3k0we"]
+[ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/banane.png" id="7_qbo85"]
+[ext_resource type="Script" path="res://scenes/ButtonMain.gd" id="7_yg5u7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6pv3"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4prex"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_walot"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0owd7"]
+draw_center = false
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yr7i7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -3289.0
+offset_top = -2076.0
+offset_right = 2711.0
+offset_bottom = 1924.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_3k0we")
+
+[node name="MainGrid" type="GridContainer" parent="."]
+offset_left = 156.0
+offset_top = 26.0
+offset_right = 898.0
+offset_bottom = 627.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 16
+columns = 3
+
+[node name="ClickerSection" type="BoxContainer" parent="MainGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+vertical = true
+
+[node name="MainSection" type="BoxContainer" parent="MainGrid"]
+layout_mode = 2
+vertical = true
+
+[node name="ButtonMain" type="Button" parent="MainGrid/MainSection"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_i6pv3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4prex")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_walot")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0owd7")
+icon = ExtResource("7_qbo85")
+icon_alignment = 1
+script = ExtResource("7_yg5u7")
+
+[node name="LabelBananas" type="Label" parent="MainGrid/MainSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_1e2pw")
+theme_type_variation = &"HeaderLarge"
+text = "BANANES
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_ndeyg")
+
+[node name="LabelBps" type="Label" parent="MainGrid/MainSection"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BPS"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_skv5g")
+
+[node name="LabelBpc" type="Label" parent="MainGrid/MainSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_1e2pw")
+text = "BPC"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_5hgmb")
+
+[node name="BuffSection" type="BoxContainer" parent="MainGrid"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="MainGrid/MainSection/ButtonMain" to="." method="_on_button_main_pressed"]

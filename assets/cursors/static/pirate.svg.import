@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bso2yin2ty8uu"
-path="res://.godot/imported/pirate.svg-b9018500937f6fc906a4bb5c682bfb0d.ctex"
+path="res://.godot/imported/pirate.svg-97ad1dcf9b55a5150fe0e48f38492eff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/svg/static/pirate.svg"
-dest_files=["res://.godot/imported/pirate.svg-b9018500937f6fc906a4bb5c682bfb0d.ctex"]
+source_file="res://assets/cursors/static/pirate.svg"
+dest_files=["res://.godot/imported/pirate.svg-97ad1dcf9b55a5150fe0e48f38492eff.ctex"]
 
 [params]
 

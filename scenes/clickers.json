@@ -1,0 +1,38 @@
+[
+	{
+		"name": "AutoClicker",
+		"description": "Un cliker qui clique tout seul.",
+		"price": 100,
+		"price_multiplier": 1.15,
+		"value": 1,
+		"type": "bps",
+		"disabled": true
+	},
+	{
+		"name": "Bananier",
+		"description": "Un bananier plein de bananes !!!!!!!",
+		"price": 1100,
+		"price_multiplier": 1.15,
+		"value": 5,
+		"type": "bps",
+		"disabled": true
+	},
+	{
+		"name": "Main",
+		"description": "Une main pour cliquer.",
+		"price": 500,
+		"price_multiplier": 1.15,
+		"value": 1,
+		"type": "bpc",
+		"disabled": true
+	},
+	{
+		"name": "Pied",
+		"description": "Un pied pour cliquer.",
+		"price": 2000,
+		"price_multiplier": 1.15,
+		"value": 5,
+		"type": "bpc",
+		"disabled": true
+	}
+]

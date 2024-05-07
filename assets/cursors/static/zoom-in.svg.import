@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bq66mudjygom6"
-path="res://.godot/imported/zoom-in.svg-4f7681ec7f4b9e530517c576406ca28a.ctex"
+path="res://.godot/imported/zoom-in.svg-937a60e59640fd1c8e42a373c4711ec2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/svg/static/zoom-in.svg"
-dest_files=["res://.godot/imported/zoom-in.svg-4f7681ec7f4b9e530517c576406ca28a.ctex"]
+source_file="res://assets/cursors/static/zoom-in.svg"
+dest_files=["res://.godot/imported/zoom-in.svg-937a60e59640fd1c8e42a373c4711ec2.ctex"]
 
 [params]
 

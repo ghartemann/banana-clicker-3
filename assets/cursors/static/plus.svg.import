@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lyrivsbhn3ss"
-path="res://.godot/imported/plus.svg-bed91a400c3e6165a38e87aac914ad4f.ctex"
+path="res://.godot/imported/plus.svg-473e20ddeb0e3461de5d31d793b33b37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/svg/static/plus.svg"
-dest_files=["res://.godot/imported/plus.svg-bed91a400c3e6165a38e87aac914ad4f.ctex"]
+source_file="res://assets/cursors/static/plus.svg"
+dest_files=["res://.godot/imported/plus.svg-473e20ddeb0e3461de5d31d793b33b37.ctex"]
 
 [params]
 

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://cckevm4hnnk8k"]
+
+[ext_resource type="Theme" uid="uid://cgrxveliicbi8" path="res://themes/button.tres" id="1_y6b6p"]
+[ext_resource type="Script" path="res://scenes/ButtonClicker.gd" id="2_k8mjg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g428h"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.137255, 0.670588, 0.368627, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h6cv"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.952941, 0.611765, 0.0705882, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eimq6"]
+bg_color = Color(0.027451, 0.713726, 0.435294, 0.45098)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhswt"]
+draw_center = false
+
+[node name="ButtonClicker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+theme = ExtResource("1_y6b6p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g428h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0h6cv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_eimq6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rhswt")
+text = "Acheter un clicker"
+script = ExtResource("2_k8mjg")
