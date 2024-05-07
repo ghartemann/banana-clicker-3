@@ -1,8 +1,8 @@
 extends Button
 
-var type: String = 'bps'
+var type: String = 'bpc'
 
-var price: int = 150:
+var price: int = 100:
 	set(new_val):
 		price = new_val
 	get:
@@ -14,7 +14,7 @@ var price_multiplier: float = 1.14:
 	get:
 		return price_multiplier
 
-var value: float = 5:
+var value: float = 1:
 	set(new_val):
 		value = new_val
 	get:
@@ -26,7 +26,7 @@ var nb_owned: int = 0:
 	get:
 		return nb_owned
 
-var clicker_name: String = "Bananier":
+var clicker_name: String = "Super curseur":
 	set(new_val):
 		clicker_name = new_val
 	get:

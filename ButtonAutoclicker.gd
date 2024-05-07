@@ -1,5 +1,7 @@
 extends Button
 
+var type: String = 'bps'
+
 var price: int = 50:
 	set(new_val):
 		price = new_val
@@ -12,11 +14,11 @@ var price_multiplier: float = 1.14:
 	get:
 		return price_multiplier
 
-var bps: float = 1:
+var value: float = 1:
 	set(new_val):
-		bps = new_val
+		value = new_val
 	get:
-		return bps
+		return value
 
 var nb_owned: int = 0:
 	set(new_val):
@@ -41,4 +43,4 @@ func _process(_delta):
 	set_button_text()
 
 func set_button_text():
-	text = clicker_name + ' (+' + str(bps) + 'bps - ' + str(nb_owned) + ' owned - ' + str(price) + ' $)'
+	text = clicker_name + ' (+' + str(value) + type + ' - ' + str(nb_owned) + ' owned - ' + str(price) + ' $)'
