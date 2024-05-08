@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cckevm4hnnk8k"]
+[gd_scene load_steps=9 format=3 uid="uid://cckevm4hnnk8k"]
 
 [ext_resource type="Theme" uid="uid://cgrxveliicbi8" path="res://themes/button.tres" id="1_x3m4o"]
 [ext_resource type="Script" path="res://scenes/buttons/ButtonClicker.gd" id="2_pu3a2"]
+[ext_resource type="Texture2D" uid="uid://bb1ch32bxbd43" path="res://assets/images/ui/favicon.png" id="3_7omu3"]
 [ext_resource type="Script" path="res://scenes/buttons/LabelValue.gd" id="3_si7yg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g428h"]
@@ -14,6 +15,7 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+corner_detail = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h6cv"]
 content_margin_left = 8.0
@@ -25,6 +27,7 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+corner_detail = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eimq6"]
 bg_color = Color(0.027451, 0.713726, 0.435294, 0.45098)
@@ -32,9 +35,11 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+corner_detail = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhswt"]
 draw_center = false
+corner_detail = 16
 
 [node name="ButtonClicker" type="Control"]
 custom_minimum_size = Vector2(390, 110)
@@ -44,7 +49,7 @@ size_flags_horizontal = 0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 390.0
+offset_right = 438.0
 offset_bottom = 110.0
 theme = ExtResource("1_x3m4o")
 theme_override_styles/normal = SubResource("StyleBoxFlat_g428h")
@@ -53,35 +58,74 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_eimq6")
 theme_override_styles/focus = SubResource("StyleBoxFlat_rhswt")
 script = ExtResource("2_pu3a2")
 
-[node name="LabelText" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 19.0
-offset_right = 124.0
-offset_bottom = 42.0
-text = "LabelText"
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="LabelPrice" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 69.0
-offset_right = 123.0
-offset_bottom = 92.0
-text = "LabelPrice"
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer"]
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 25
 
-[node name="LabelOwned" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 16.0
-offset_right = 336.0
-offset_bottom = 39.0
-text = "LabelOwned"
+[node name="ClickerPicture" type="TextureRect" parent="Button/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+texture = ExtResource("3_7omu3")
+expand_mode = 3
+stretch_mode = 4
 
-[node name="LabelValue" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 44.0
-offset_right = 134.0
-offset_bottom = 67.0
-text = "LabelValue"
+[node name="Labels" type="VBoxContainer" parent="Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LabelText" type="Label" parent="Button/MarginContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{LabelText}"
+
+[node name="LabelValue" type="Label" parent="Button/MarginContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{LabelValue}"
 script = ExtResource("3_si7yg")
+
+[node name="LabelPrice" type="Label" parent="Button/MarginContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{LabelPrice}"
+
+[node name="RightLabels" type="VBoxContainer" parent="Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LabelOwned" type="Label" parent="Button/MarginContainer/HBoxContainer/RightLabels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{LabelOwned}"
+
+[node name="Tooltip" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 27.0
+offset_top = -52.0
+offset_right = 261.0
+offset_bottom = -6.0
+
+[node name="Label" type="Label" parent="Tooltip"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 11.0
+offset_right = 48.0
+offset_bottom = 34.0
+text = "test"
+
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]

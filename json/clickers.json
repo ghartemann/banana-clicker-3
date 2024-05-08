@@ -5,7 +5,8 @@
 		"price": 100,
 		"price_multiplier": 1.15,
 		"value": 1,
-		"type": "bps"
+		"type": "bps",
+		"picture_path": "clickers/clicker.png"
 	},
 	{
 		"name": "Bananier",
@@ -13,22 +14,25 @@
 		"price": 1100,
 		"price_multiplier": 1.15,
 		"value": 5,
-		"type": "bps"
+		"type": "bps",
+		"picture_path": "clickers/leaf.png"
 	},
 	{
-		"name": "Main",
+		"name": "Meilleur curseur",
 		"description": "Une main pour cliquer.",
 		"price": 500,
 		"price_multiplier": 1.15,
 		"value": 1,
-		"type": "bpc"
+		"type": "bpc",
+		"picture_path": "buffs/hand.png"
 	},
 	{
-		"name": "Pied",
+		"name": "Curseur en béton armé",
 		"description": "Un pied pour cliquer.",
 		"price": 2000,
 		"price_multiplier": 1.15,
 		"value": 5,
-		"type": "bpc"
+		"type": "bpc",
+		"picture_path": "buffs/solidcursor.png"
 	}
 ]

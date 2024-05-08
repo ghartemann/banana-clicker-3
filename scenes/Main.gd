@@ -56,6 +56,8 @@ func instantiate_buttons():
 		child_button.type = clicker.type
 		child_button.price = clicker.price
 		child_button.price_multiplier = clicker.price_multiplier
+		child_button.picture_path = clicker.picture_path
+		child_button.description = clicker.description
 		
 		child_button.disabled = false
 		child_button.nb_owned = 0
