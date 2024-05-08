@@ -1,4 +1,4 @@
-# Banana Clicker 3
+# 🍌 Banana Clicker 3 🍌
 
 Banana Clicker 3 is an incremental clicker game developed using the Godot game engine. It is the sequel to Banana Clicker, the JavaScript internet game sensation released in 2022. The development of Banana Clicker 3 is currently in progress, and it will be released on Steam soon.
 

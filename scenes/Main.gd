@@ -4,6 +4,8 @@ var button_clicker: PackedScene = preload("res://scenes/buttons/ButtonClicker.ts
 var utils = preload("res://scripts/Utils.gd")
 
 #################### Variables
+var language: String = 'fr'
+
 var bananas: float = 0:
 	set(new_val):
 		bananas = new_val
@@ -51,13 +53,13 @@ func instantiate_buttons():
 
 		var child_button = button.get_child(0)
 		
-		child_button.clicker_name = clicker.name
+		child_button.clicker_name = clicker.name[language]
 		child_button.value = clicker.value
 		child_button.type = clicker.type
 		child_button.price = clicker.price
 		child_button.price_multiplier = clicker.price_multiplier
 		child_button.picture_path = clicker.picture_path
-		child_button.description = clicker.description
+		child_button.description = clicker.description[language]
 		
 		child_button.disabled = false
 		child_button.nb_owned = 0

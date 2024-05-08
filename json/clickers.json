@@ -1,7 +1,13 @@
 [
 	{
-		"name": "AutoClicker",
-		"description": "Un cliker qui clique tout seul.",
+		"name": {
+			"fr": "Cliqueur",
+			"en": "Clicker"
+		},
+		"description": {
+			"fr": "Un cliqueur qui clique tout seul.",
+			"en": "A clicker that clicks by itself."
+		},
 		"price": 100,
 		"price_multiplier": 1.15,
 		"value": 1,
@@ -9,8 +15,14 @@
 		"picture_path": "clickers/clicker.png"
 	},
 	{
-		"name": "Bananier",
-		"description": "Un bananier plein de bananes !!!!!!!",
+		"name": {
+			"fr": "Bananier",
+			"en": "Banana tree"
+		},
+		"description": {
+			"fr": "Un bananier qui produit des bananes.",
+			"en": "A banana tree that produces bananas."
+		},
 		"price": 1100,
 		"price_multiplier": 1.15,
 		"value": 5,
@@ -18,8 +30,14 @@
 		"picture_path": "clickers/leaf.png"
 	},
 	{
-		"name": "Meilleur curseur",
-		"description": "Une main pour cliquer.",
+		"name": {
+			"fr": "Meilleur curseur",
+			"en": "Better cursor"
+		},
+		"description": {
+			"fr": "Un curseur plus performant.",
+			"en": "A more efficient cursor."
+		},
 		"price": 500,
 		"price_multiplier": 1.15,
 		"value": 1,
@@ -27,8 +45,14 @@
 		"picture_path": "buffs/hand.png"
 	},
 	{
-		"name": "Curseur en béton armé",
-		"description": "Un pied pour cliquer.",
+		"name": {
+			"fr": "Curseur en béton armé",
+			"en": "Reinforced concrete cursor"
+		},
+		"description": {
+			"fr": "Un curseur en béton armé.",
+			"en": "A reinforced concrete cursor."
+		},
 		"price": 2000,
 		"price_multiplier": 1.15,
 		"value": 5,
