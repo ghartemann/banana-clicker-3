@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2q66bxpn0yb4"]
+
+[ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/ui/banane.png" id="1_kbivp"]
+[ext_resource type="Texture2D" uid="uid://wxhi80ty4qv2" path="res://assets/images/ui/monkeyon.png" id="2_fb2o6"]
+
+[node name="ButtonMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/AspectRatioContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_kbivp")
+texture_pressed = ExtResource("2_fb2o6")

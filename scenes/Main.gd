@@ -4,7 +4,7 @@ var button_clicker: PackedScene = preload("res://scenes/buttons/ButtonClicker.ts
 var utils = preload("res://scripts/Utils.gd")
 
 #################### Variables
-var language: String = 'fr'
+var language: String = 'en'
 
 var bananas: float = 0:
 	set(new_val):

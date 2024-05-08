@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://sfhmwfbin41u"]
+[gd_scene load_steps=16 format=3 uid="uid://sfhmwfbin41u"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_yr7i7"]
 [ext_resource type="Script" path="res://scenes/LabelBananas.gd" id="2_ndeyg"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dgxx5aynta82t" path="res://assets/fonts/Grandstander/static/Grandstander-Bold.ttf" id="3_xj6fa"]
 [ext_resource type="Script" path="res://scenes/LabelBpc.gd" id="4_5hgmb"]
 [ext_resource type="Texture2D" uid="uid://cssnxv45rixml" path="res://assets/images/bg/bananabg.jpg" id="5_3k0we"]
+[ext_resource type="PackedScene" uid="uid://b2q66bxpn0yb4" path="res://scenes/buttons/ButtonMain.tscn" id="6_t0555"]
 [ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/ui/banane.png" id="7_qbo85"]
 [ext_resource type="Script" path="res://scenes/buttons/ButtonMain.gd" id="7_yg5u7"]
 
@@ -14,17 +15,23 @@
 default_font = ExtResource("3_xj6fa")
 default_font_size = 46
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6pv3"]
-draw_center = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4prex"]
-draw_center = false
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_walot"]
-draw_center = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0owd7"]
-draw_center = false
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54w30"]
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="Theme" id="Theme_iw5et"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gysyw"]
+bg_color = Color(1.67907e-06, 0.8291, 0.714125, 0.152941)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing = false
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -83,9 +90,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="ClickerSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid/SectionLeft"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MainGrid/SectionLeft"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_scroll_mode = 0
+
+[node name="ClickerSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid/SectionLeft/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 3
 
 [node name="MainSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid"]
@@ -96,38 +109,63 @@ size_flags_vertical = 3
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainGrid/MainSection"]
 layout_mode = 2
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.8
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="ButtonMain" type="Button" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer"]
-unique_name_in_owner = true
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer"]
+visible = false
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_i6pv3")
-theme_override_styles/hover = SubResource("StyleBoxFlat_4prex")
+stretch_mode = 0
+
+[node name="ButtonMain" type="Button" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer"]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
 theme_override_styles/pressed = SubResource("StyleBoxFlat_walot")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0owd7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_54w30")
 flat = true
 icon_alignment = 1
 script = ExtResource("7_yg5u7")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/ButtonMain"]
-custom_minimum_size = Vector2(256, 256)
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_iw5et")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gysyw")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain/MarginContainer"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 2
 texture = ExtResource("7_qbo85")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="ButtonMain2" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer" instance=ExtResource("6_t0555")]
+layout_mode = 2
+
 [node name="Labels" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid/MainSection"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 
 [node name="LabelBananas" type="Label" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels"]
 unique_name_in_owner = true
@@ -162,8 +200,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="BuffSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid/SectionRight"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/MainGrid/SectionRight"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuffSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid/SectionRight/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/ButtonMain" to="." method="_on_button_main_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain" to="." method="_on_button_main_pressed"]

@@ -53,7 +53,7 @@ var picture_path: String:
 var description: String:
 	set(new_val):
 		description = new_val
-		%Tooltip.get_child(0).text = new_val
+		%LabelTooltip.text = new_val
 	get:
 		return description
 			

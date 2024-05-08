@@ -45,6 +45,8 @@ corner_detail = 16
 custom_minimum_size = Vector2(390, 110)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 438.0
+offset_bottom = 110.0
 size_flags_horizontal = 0
 
 [node name="Button" type="Button" parent="."]
@@ -116,16 +118,28 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_left = 27.0
 offset_top = -52.0
-offset_right = 261.0
+offset_right = 289.0
 offset_bottom = -6.0
 
-[node name="Label" type="Label" parent="Tooltip"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 11.0
-offset_right = 48.0
-offset_bottom = 34.0
+[node name="MarginContainer" type="MarginContainer" parent="Tooltip"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LabelTooltip" type="Label" parent="Tooltip/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
 text = "test"
+autowrap_mode = 3
 
 [connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
