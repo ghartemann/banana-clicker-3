@@ -2,6 +2,8 @@
 
 Banana Clicker 3 is an incremental clicker game developed using the Godot game engine. It is the sequel to Banana Clicker, the JavaScript internet game sensation released in 2022. The development of Banana Clicker 3 is currently in progress, and it will be released on Steam soon.
 
+We don't talk about Banana Clicker 2.
+
 ## Gameplay
 
 In Banana Clicker 3, the objective is to click on bananas to earn bananas. As you accumulate bananas, you can unlock upgrades and new features to enhance your banana-clicking experience. The game will offer a variety of challenges and achievements to keep you engaged.
@@ -31,4 +33,5 @@ Banana Clicker 3 is released under the [MIT License](https://opensource.org/lice
 
 ## Disclaimer
 
-This Readme has been AI generated. they took er jerbs
+1. I said we don't talk about Banana Clicker 2.
+2. This Readme has been AI generated. they took er jerbs
