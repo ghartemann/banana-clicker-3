@@ -22,7 +22,7 @@ window/size/viewport_width=2300
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
-mouse_cursor/custom_image="res://assets/cursors/static/hand2copy.svg"
+mouse_cursor/custom_image="res://assets/cursors/resized/left_ptr2.svg"
 
 [rendering]
 

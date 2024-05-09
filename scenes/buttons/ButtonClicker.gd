@@ -2,6 +2,8 @@ extends Button
 
 signal buy(type, value, price)
 
+var cursor_func: Script = preload("res://scripts/cursor.gd")
+
 var type: String:
 	set(new_val):
 		type = new_val
@@ -81,7 +83,8 @@ func buy_clicker():
 
 func _on_mouse_entered():
 	%Tooltip.show()
-
+	cursor_func.change_cursor(true)
 
 func _on_mouse_exited():
 	%Tooltip.hide()
+	cursor_func.change_cursor(false)

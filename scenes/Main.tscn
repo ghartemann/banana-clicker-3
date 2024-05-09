@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://sfhmwfbin41u"]
+[gd_scene load_steps=10 format=3 uid="uid://sfhmwfbin41u"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_yr7i7"]
 [ext_resource type="Script" path="res://scenes/LabelBananas.gd" id="2_ndeyg"]
@@ -8,30 +8,10 @@
 [ext_resource type="Script" path="res://scenes/LabelBpc.gd" id="4_5hgmb"]
 [ext_resource type="Texture2D" uid="uid://cssnxv45rixml" path="res://assets/images/bg/bananabg.jpg" id="5_3k0we"]
 [ext_resource type="PackedScene" uid="uid://b2q66bxpn0yb4" path="res://scenes/buttons/ButtonMain.tscn" id="6_t0555"]
-[ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/ui/banane.png" id="7_qbo85"]
-[ext_resource type="Script" path="res://scenes/buttons/ButtonMain.gd" id="7_yg5u7"]
 
 [sub_resource type="Theme" id="Theme_ga022"]
 default_font = ExtResource("3_xj6fa")
 default_font_size = 46
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_walot"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54w30"]
-corner_radius_top_left = 1024
-corner_radius_top_right = 1024
-corner_radius_bottom_right = 1024
-corner_radius_bottom_left = 1024
-
-[sub_resource type="Theme" id="Theme_iw5et"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gysyw"]
-bg_color = Color(1.67907e-06, 0.8291, 0.714125, 0.152941)
-corner_radius_top_left = 1024
-corner_radius_top_right = 1024
-corner_radius_bottom_right = 1024
-corner_radius_bottom_left = 1024
-anti_aliasing = false
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -119,47 +99,8 @@ visible = false
 layout_mode = 2
 stretch_mode = 0
 
-[node name="ButtonMain" type="Button" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer"]
+[node name="ButtonMain" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer" instance=ExtResource("6_t0555")]
 unique_name_in_owner = true
-clip_contents = true
-layout_mode = 2
-theme_override_styles/pressed = SubResource("StyleBoxFlat_walot")
-theme_override_styles/focus = SubResource("StyleBoxFlat_54w30")
-flat = true
-icon_alignment = 1
-script = ExtResource("7_yg5u7")
-
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_iw5et")
-theme_override_styles/panel = SubResource("StyleBoxFlat_gysyw")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 100
-theme_override_constants/margin_bottom = 100
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain/MarginContainer"]
-custom_minimum_size = Vector2(256, 256)
-layout_mode = 2
-texture = ExtResource("7_qbo85")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="ButtonMain2" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer" instance=ExtResource("6_t0555")]
 layout_mode = 2
 
 [node name="Labels" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid/MainSection"]
@@ -209,5 +150,3 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MainGrid/MainSection/MarginContainer/AspectRatioContainer/ButtonMain" to="." method="_on_button_main_pressed"]

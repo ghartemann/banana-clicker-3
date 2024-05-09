@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b2q66bxpn0yb4"]
+[gd_scene load_steps=4 format=3 uid="uid://b2q66bxpn0yb4"]
 
 [ext_resource type="Texture2D" uid="uid://bs3yntwyseaif" path="res://assets/images/ui/banane.png" id="1_kbivp"]
-[ext_resource type="Texture2D" uid="uid://wxhi80ty4qv2" path="res://assets/images/ui/monkeyon.png" id="2_fb2o6"]
+[ext_resource type="Texture2D" uid="uid://c5wxe4jr51pjd" path="res://assets/images/ui/banane_s.png" id="2_6tgdo"]
+[ext_resource type="Script" path="res://scenes/buttons/ButtonMain.gd" id="3_jheq8"]
 
 [node name="ButtonMain" type="Control"]
 layout_mode = 3
@@ -25,4 +26,14 @@ layout_mode = 2
 [node name="TextureButton" type="TextureButton" parent="CenterContainer/AspectRatioContainer"]
 layout_mode = 2
 texture_normal = ExtResource("1_kbivp")
-texture_pressed = ExtResource("2_fb2o6")
+texture_pressed = ExtResource("2_6tgdo")
+script = ExtResource("3_jheq8")
+
+[node name="Label" type="Label" parent="CenterContainer/AspectRatioContainer/TextureButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="mouse_entered" from="CenterContainer/AspectRatioContainer/TextureButton" to="CenterContainer/AspectRatioContainer/TextureButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/AspectRatioContainer/TextureButton" to="CenterContainer/AspectRatioContainer/TextureButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/AspectRatioContainer/TextureButton" to="CenterContainer/AspectRatioContainer/TextureButton" method="_on_pressed"]
