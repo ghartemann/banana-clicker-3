@@ -5,6 +5,7 @@ var utils = preload("res://scripts/Utils.gd")
 
 #################### Variables
 var language: String = 'en'
+var cursor_position: Vector2
 
 var bananas: float = 0:
 	set(new_val):
@@ -23,7 +24,7 @@ var bps: float = 0:
 	get:
 		return bps
 
-var bpc: float = 1:
+var bpc: float = 400:
 	set(new_val):
 		bpc = new_val
 		%LabelBpc.value = bpc
@@ -31,7 +32,7 @@ var bpc: float = 1:
 		return bpc
 
 
-#################### Inbuilt functions
+#################### Built-in functions
 func _ready():
 	bananas = bananas
 	bps = bps
@@ -42,6 +43,9 @@ func _ready():
 func _process(delta):
 	increment_via_bps(delta)
 	disable_expensive_clickers()
+	
+	for clicker in %ClickerSection.get_children():
+		clicker.get_child(0).cursor_position = Vector2(cursor_position.x -200, cursor_position.y - 250)
 
 
 #################### Init functions
@@ -106,3 +110,7 @@ func _on_buy(type: String, value: float, price: float):
 		increment_bpc(value)
 		
 	increment_bananas(-price)
+
+
+func _on_cursor_capture_cursor(position):
+	cursor_position = position

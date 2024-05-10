@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cckevm4hnnk8k"]
+[gd_scene load_steps=10 format=3 uid="uid://cckevm4hnnk8k"]
 
 [ext_resource type="Theme" uid="uid://cgrxveliicbi8" path="res://themes/button.tres" id="1_x3m4o"]
 [ext_resource type="Script" path="res://scenes/buttons/ButtonClicker.gd" id="2_pu3a2"]
 [ext_resource type="Texture2D" uid="uid://bb1ch32bxbd43" path="res://assets/images/ui/favicon.png" id="3_7omu3"]
 [ext_resource type="Script" path="res://scenes/buttons/LabelValue.gd" id="3_si7yg"]
+[ext_resource type="Script" path="res://scenes/buttons/LabelPrice.gd" id="5_x6g7p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g428h"]
 content_margin_left = 8.0
@@ -104,22 +105,28 @@ script = ExtResource("3_si7yg")
 unique_name_in_owner = true
 layout_mode = 2
 text = "{LabelPrice}"
+script = ExtResource("5_x6g7p")
 
 [node name="RightLabels" type="VBoxContainer" parent="Button/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="LabelOwned" type="Label" parent="Button/MarginContainer/HBoxContainer/RightLabels"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer/HBoxContainer/RightLabels"]
+layout_mode = 2
+alignment = 2
+
+[node name="LabelOwned" type="Label" parent="Button/MarginContainer/HBoxContainer/RightLabels/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "{LabelOwned}"
+text = "L
+"
+horizontal_alignment = 2
 
 [node name="Tooltip" type="Panel" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 27.0
-offset_top = -52.0
-offset_right = 289.0
-offset_bottom = -6.0
+layout_mode = 1
+offset_right = 262.0
+offset_bottom = 46.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Tooltip"]
 layout_mode = 1

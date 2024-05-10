@@ -3,6 +3,10 @@ extends Button
 signal buy(type, value, price)
 
 var cursor_func: Script = preload("res://scripts/cursor.gd")
+var utils: Script = preload("res://scripts/Utils.gd")
+
+var cursor_position: Vector2
+var hovered: bool = false
 
 var type: String:
 	set(new_val):
@@ -11,10 +15,10 @@ var type: String:
 	get:
 		return type
 
-var price: int:
+var price: float:
 	set(new_val):
 		price = new_val
-		%LabelPrice.text = '🍌 ' + str(new_val)
+		%LabelPrice.value = new_val
 	get:
 		return price
 
@@ -27,7 +31,7 @@ var price_multiplier: float:
 var value: float:
 	set(new_val):
 		value = new_val
-		%LabelValue.value = str(new_val)
+		%LabelValue.value = new_val
 	get:
 		return value
 
@@ -58,7 +62,7 @@ var description: String:
 		%LabelTooltip.text = new_val
 	get:
 		return description
-			
+
 
 func _ready():
 	set_button_text()
@@ -66,6 +70,22 @@ func _ready():
 	buy.connect(Callable(get_node("/root/Main"), "_on_buy"))
 
 func _process(_delta):
+	if self.disabled == true:
+		%ClickerPicture.modulate.a = 0.5
+	else:
+		%ClickerPicture.modulate.a = 1
+	
+	if hovered == true:
+		%Tooltip.show()
+		cursor_func.change_cursor(true, disabled)
+	else:
+		%Tooltip.hide()
+		cursor_func.change_cursor(false)
+	
+	if %Tooltip.visible == true:
+		var test = get_viewport().get_mouse_position()
+		%Tooltip.position = cursor_position
+		
 	set_button_text()
 	
 func _pressed():
@@ -80,11 +100,8 @@ func buy_clicker():
 	price *= price_multiplier
 	nb_owned += 1
 
-
 func _on_mouse_entered():
-	%Tooltip.show()
-	cursor_func.change_cursor(true)
+	hovered = true
 
 func _on_mouse_exited():
-	%Tooltip.hide()
-	cursor_func.change_cursor(false)
+	hovered = false
