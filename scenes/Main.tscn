@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://sfhmwfbin41u"]
+[gd_scene load_steps=13 format=3 uid="uid://sfhmwfbin41u"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_yr7i7"]
 [ext_resource type="Script" path="res://scenes/LabelBananas.gd" id="2_ndeyg"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scenes/LabelBpc.gd" id="4_5hgmb"]
 [ext_resource type="Texture2D" uid="uid://cssnxv45rixml" path="res://assets/images/bg/bananabg.jpg" id="5_3k0we"]
 [ext_resource type="PackedScene" uid="uid://b2q66bxpn0yb4" path="res://scenes/buttons/ButtonMain.tscn" id="6_t0555"]
+[ext_resource type="Script" path="res://scenes/LabelBananasTotal.gd" id="7_8mlji"]
+[ext_resource type="Script" path="res://scenes/LabelPollution.gd" id="9_hiv4f"]
 [ext_resource type="Script" path="res://scenes/CursorCapture.gd" id="9_qa8w7"]
 
 [sub_resource type="Theme" id="Theme_ga022"]
@@ -121,6 +123,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_ndeyg")
 
+[node name="LabelBananasTotal" type="Label" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_1e2pw")
+theme_type_variation = &"HeaderLarge"
+text = "BANANES
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_8mlji")
+
 [node name="LabelBps" type="Label" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -146,6 +159,15 @@ text = "BPC"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_5hgmb")
+
+[node name="LabelPollution" type="Label" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_1e2pw")
+text = "BPC"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_hiv4f")
 
 [node name="SectionRight" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid"]
 layout_mode = 2

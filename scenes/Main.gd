@@ -4,7 +4,7 @@ var button_clicker: PackedScene = preload("res://scenes/buttons/ButtonClicker.ts
 var utils = preload("res://scripts/Utils.gd")
 
 #################### Variables
-var language: String = 'en'
+var language: String = 'fr'
 var cursor_position: Vector2
 
 var bananas: float = 0:
@@ -14,8 +14,19 @@ var bananas: float = 0:
 	get:
 		return bananas
 
-var bananas_total: int = 0
-var bananas_total_bpc: int = 0
+var bananas_total: int = 0:
+	set(new_val):
+		bananas_total = new_val
+		%LabelBananasTotal.value = new_val
+	get:
+		return bananas_total
+
+var pollution_total: float = 0:
+	set(new_val):
+		pollution_total = new_val
+		%LabelPollution.value = new_val
+	get:
+		return pollution_total
 
 var bps: float = 0:
 	set(new_val):
@@ -43,9 +54,6 @@ func _ready():
 func _process(delta):
 	increment_via_bps(delta)
 	disable_expensive_clickers()
-	
-	for clicker in %ClickerSection.get_children():
-		clicker.get_child(0).cursor_position = Vector2(cursor_position.x -200, cursor_position.y - 250)
 
 
 #################### Init functions
@@ -55,7 +63,7 @@ func instantiate_buttons():
 	for clicker in imported_clickers:
 		var button = button_clicker.instantiate()
 
-		var child_button = button.get_child(0)
+		var child_button = button.get_node("Button")
 		
 		child_button.clicker_name = clicker.name[language]
 		child_button.value = clicker.value
@@ -75,42 +83,32 @@ func instantiate_buttons():
 
 
 #################### Custom functions
-func increment_bananas(amount: float):
+func increment_bananas(amount: float) -> void:
 	bananas += amount
-	bananas_total += amount
+	
+	if amount > 0:
+		bananas_total += amount
+		pollution_total += (amount * 160) / 1000
 
-func increment_via_bps(delta: float):
+func increment_via_bps(delta: float) -> void:
 	increment_bananas(bps * delta)
 
-func increment_via_bpc():
+func increment_via_bpc() -> void:
 	increment_bananas(bpc)
-	bananas_total_bpc += bpc
-	
-func increment_bps(amount: float):
-	bps += amount
-	
-func increment_bpc(amount: float):
-	bpc += amount
 
-func _on_button_main_pressed():
+func increment_bp(amount: float, type: String) -> void:
+	self[type] += amount
+
+func _on_button_main_pressed() -> void:
 	increment_via_bpc()
 
-func disable_expensive_clickers():
-	for c in %ClickerSection.get_children():
-		c.get_child(0).disabled = bananas < c.get_child(0).price
-	
-	for b in %BuffSection.get_children():
-		b.get_child(0).disabled = bananas < b.get_child(0).price
+func disable_expensive_clickers() -> void:
+	for b in %ClickerSection.get_children() + %BuffSection.get_children():
+		b.get_node("Button").disabled = bananas < b.get_node("Button").price
 
-func _on_buy(type: String, value: float, price: float):
-	print('parent')
-	if (type == 'bps'):
-		increment_bps(value)
-	elif (type == 'bpc'):
-		increment_bpc(value)
-		
+func _on_buy(type: String, value: float, price: float) -> void:
+	increment_bp(value, type)
 	increment_bananas(-price)
 
-
-func _on_cursor_capture_cursor(position):
+func _on_cursor_capture_cursor(position) -> void:
 	cursor_position = position

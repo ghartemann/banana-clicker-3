@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6egtsc0uwx6x"
-path="res://.godot/imported/rifle.png-d1219174b7a245360a51f321ad49522c.ctex"
+path="res://.godot/imported/rifle.png-686bc58e1b1a127551fedf3b9c70456b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/buffs/rifle.png"
-dest_files=["res://.godot/imported/rifle.png-d1219174b7a245360a51f321ad49522c.ctex"]
+source_file="res://assets/images/clickers/rifle.png"
+dest_files=["res://.godot/imported/rifle.png-686bc58e1b1a127551fedf3b9c70456b.ctex"]
 
 [params]
 

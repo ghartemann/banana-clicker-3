@@ -5,7 +5,6 @@ signal buy(type, value, price)
 var cursor_func: Script = preload("res://scripts/cursor.gd")
 var utils: Script = preload("res://scripts/Utils.gd")
 
-var cursor_position: Vector2
 var hovered: bool = false
 
 var type: String:
@@ -83,8 +82,14 @@ func _process(_delta):
 		cursor_func.change_cursor(false)
 	
 	if %Tooltip.visible == true:
-		var test = get_viewport().get_mouse_position()
-		%Tooltip.position = cursor_position
+		var mouse_pos = get_viewport().get_mouse_position()
+		
+		#var x = mouse_pos.x - global_position.x + 100
+		#var y = mouse_pos.y - global_position.y
+		
+		var x = mouse_pos.x + 100
+		var y = mouse_pos.y
+		%Tooltip.position = Vector2(x, y)
 		
 	set_button_text()
 	

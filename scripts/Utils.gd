@@ -6,18 +6,39 @@ static func format_for_display(value: float) -> String:
 		value = snapped(value, 1)
 	elif (value >= 1000 and value < 1000000):
 		value = snapped(value / 1000, 0.01)
-		unit = 'k'
+		unit = 'K'
 	elif (value >= 1000000 and value < 1000000000):
 		value = snapped(value / 1000000, 0.01)
 		unit = 'M'
 	elif (value >= 1000000000):
 		value = snapped(value / 1000000000, 0.01)
 		unit = 'B'
+	elif (value >= 1000000000000):
+		value = snapped(value / 1000000000000, 0.01)
+		unit = 'T'
+	elif (value >= 1000000000000000):
+		value = snapped(value / 1000000000000000, 0.01)
+		unit = 'Q'
+	elif (value >= 1000000000000000000):
+		value = snapped(value / 1000000000000000000, 0.01)
+		unit = 'S'
+	elif (value >= 1000000000000000000000):
+		value = snapped(value / 1000000000000000000000, 0.01)
+		unit = 'O'
+	elif (value >= 1000000000000000000000000):
+		value = snapped(value / 1000000000000000000000000, 0.01)
+		unit = 'N'
+	elif (value >= 1000000000000000000000000000):
+		value = snapped(value / 1000000000000000000000000000, 0.01)
+		unit = 'D'
+	elif (value >= 1000000000000000000000000000000):
+		value = snapped(value / 1000000000000000000000000000000, 0.01)
+		unit = 'U'
 	
 	toReturn = str(value)
 	
 	if unit:
-		toReturn += ' ' + unit
+		toReturn += unit
 	
 	return toReturn
 
