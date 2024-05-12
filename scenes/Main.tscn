@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://sfhmwfbin41u"]
+[gd_scene load_steps=14 format=3 uid="uid://sfhmwfbin41u"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_yr7i7"]
 [ext_resource type="Script" path="res://scenes/LabelBananas.gd" id="2_ndeyg"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/LabelBananasTotal.gd" id="7_8mlji"]
 [ext_resource type="Script" path="res://scenes/LabelPollution.gd" id="9_hiv4f"]
 [ext_resource type="Script" path="res://scenes/CursorCapture.gd" id="9_qa8w7"]
+[ext_resource type="PackedScene" uid="uid://dgdswdfikxqsk" path="res://scenes/save_load/save_load.tscn" id="12_y4qwt"]
 
 [sub_resource type="Theme" id="Theme_ga022"]
 default_font = ExtResource("3_xj6fa")
@@ -169,6 +170,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_hiv4f")
 
+[node name="SaveButton" type="Button" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SAVE"
+
+[node name="LoadButton" type="Button" parent="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LOAD"
+
 [node name="SectionRight" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MainGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -190,4 +201,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("9_qa8w7")
 
+[node name="SaveLoad" parent="." instance=ExtResource("12_y4qwt")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MainGrid/MainSection/Labels/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="cursor" from="CursorCapture" to="." method="_on_cursor_capture_cursor"]

@@ -1,4 +1,4 @@
-extends Button
+extends Control
 
 signal buy(type, value, price)
 
@@ -65,19 +65,22 @@ var description: String:
 
 
 func _ready():
+	add_to_group("clickers")
+	add_to_group("Persist")
+	
 	set_button_text()
 	%Tooltip.hide()
 	buy.connect(Callable(get_node("/root/Main"), "_on_buy"))
 
 func _process(_delta):
-	if self.disabled == true:
+	if %Button.disabled == true:
 		%ClickerPicture.modulate.a = 0.5
 	else:
 		%ClickerPicture.modulate.a = 1
 	
 	if hovered == true:
 		%Tooltip.show()
-		cursor_func.change_cursor(true, disabled)
+		cursor_func.change_cursor(true, %Button.disabled)
 	else:
 		%Tooltip.hide()
 		cursor_func.change_cursor(false)
@@ -94,7 +97,7 @@ func _process(_delta):
 		
 	set_button_text()
 	
-func _pressed():
+func _on_button_pressed():
 	buy_clicker()
 
 func set_button_text():
@@ -111,3 +114,12 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	hovered = false
+
+# func save() -> Dictionary:
+# 	var save_dict = {
+# 		"filename": get_scene_file_path(),
+# 		"parent": get_parent().get_path(),
+# 		"nb_owned": nb_owned
+# 	}
+	
+# 	return save_dict

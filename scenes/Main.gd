@@ -45,6 +45,9 @@ var bpc: float = 1:
 
 #################### Built-in functions
 func _ready():
+	name = "Main"
+	add_to_group("Persist")
+	
 	bananas = bananas
 	bps = bps
 	bpc = bpc
@@ -62,19 +65,17 @@ func instantiate_buttons():
 
 	for clicker in imported_clickers:
 		var button = button_clicker.instantiate()
-
-		var child_button = button.get_node("Button")
 		
-		child_button.clicker_name = clicker.name[language]
-		child_button.value = clicker.value
-		child_button.type = clicker.type
-		child_button.price = clicker.price
-		child_button.price_multiplier = clicker.price_multiplier
-		child_button.picture_path = clicker.picture_path
-		child_button.description = clicker.description[language]
+		button.clicker_name = clicker.name[language]
+		button.value = clicker.value
+		button.type = clicker.type
+		button.price = clicker.price
+		button.price_multiplier = clicker.price_multiplier
+		button.picture_path = clicker.picture_path
+		button.description = clicker.description[language]
 		
-		child_button.disabled = false
-		child_button.nb_owned = 0
+		button.get_node('Button').disabled = false
+		button.nb_owned = 0
 		
 		if clicker.type == 'bps':
 			%ClickerSection.add_child(button)
@@ -104,7 +105,7 @@ func _on_button_main_pressed() -> void:
 
 func disable_expensive_clickers() -> void:
 	for b in %ClickerSection.get_children() + %BuffSection.get_children():
-		b.get_node("Button").disabled = bananas < b.get_node("Button").price
+		b.get_node("Button").disabled = bananas < b.price
 
 func _on_buy(type: String, value: float, price: float) -> void:
 	increment_bp(value, type)
@@ -112,3 +113,24 @@ func _on_buy(type: String, value: float, price: float) -> void:
 
 func _on_cursor_capture_cursor(position) -> void:
 	cursor_position = position
+
+func _on_save_button_pressed():
+	%SaveLoad.save_game()
+
+
+func _on_load_button_pressed():
+	%SaveLoad.load_game()
+
+func save() -> Dictionary:
+	var save_dict = {
+		"filename": get_scene_file_path(),
+		"parent": get_parent().get_path(),
+		"bananas": bananas,
+		"bananas_total": bananas_total,
+		"pollution_total": pollution_total,
+		"bps": bps,
+		"bpc": bpc,
+		"name": name
+	}
+	
+	return save_dict
