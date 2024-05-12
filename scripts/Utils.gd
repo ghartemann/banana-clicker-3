@@ -22,18 +22,7 @@ static func format_for_display(value: float) -> String:
 	elif (value >= 1000000000000000000):
 		value = snapped(value / 1000000000000000000, 0.01)
 		unit = 'S'
-	elif (value >= 1000000000000000000000):
-		value = snapped(value / 1000000000000000000000, 0.01)
-		unit = 'O'
-	elif (value >= 1000000000000000000000000):
-		value = snapped(value / 1000000000000000000000000, 0.01)
-		unit = 'N'
-	elif (value >= 1000000000000000000000000000):
-		value = snapped(value / 1000000000000000000000000000, 0.01)
-		unit = 'D'
-	elif (value >= 1000000000000000000000000000000):
-		value = snapped(value / 1000000000000000000000000000000, 0.01)
-		unit = 'U'
+	#après ça les int sont trop gros oups
 	
 	toReturn = str(value)
 	

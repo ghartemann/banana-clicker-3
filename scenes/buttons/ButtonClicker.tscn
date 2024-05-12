@@ -150,7 +150,18 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LabelTooltip" type="Label" parent="Node2D/Tooltip/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D/Tooltip/MarginContainer"]
+layout_mode = 2
+
+[node name="LabelTooltip" type="Label" parent="Node2D/Tooltip/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+text = "test"
+autowrap_mode = 3
+
+[node name="LabelTooltip2" type="Label" parent="Node2D/Tooltip/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 2.08165e-12)
 layout_mode = 2

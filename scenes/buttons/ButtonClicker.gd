@@ -38,6 +38,7 @@ var nb_owned: int:
 	set(new_val):
 		nb_owned = new_val
 		%LabelOwned.text = str(new_val)
+		%LabelTooltip2.text = 'BPS total : ' + str(nb_owned * value)
 	get:
 		return nb_owned
 

@@ -14,7 +14,7 @@ var bananas: float = 0:
 	get:
 		return bananas
 
-var bananas_total: int = 0:
+var bananas_total: float = 0:
 	set(new_val):
 		bananas_total = new_val
 		%LabelBananasTotal.value = new_val
@@ -35,7 +35,7 @@ var bps: float = 0:
 	get:
 		return bps
 
-var bpc: float = 400:
+var bpc: float = 1:
 	set(new_val):
 		bpc = new_val
 		%LabelBpc.value = bpc
@@ -85,7 +85,7 @@ func instantiate_buttons():
 #################### Custom functions
 func increment_bananas(amount: float) -> void:
 	bananas += amount
-	
+
 	if amount > 0:
 		bananas_total += amount
 		pollution_total += (amount * 160) / 1000
