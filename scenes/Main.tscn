@@ -58,10 +58,21 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_ga022")
-text = "Banana Clicker 3"
+text = "Banana Clicker"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ga022")
+theme_override_font_sizes/font_size = 21
+text = "Definitive Remastered Edition"
+horizontal_alignment = 1
 
 [node name="MainGrid" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_direction = 2

@@ -1,46 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://cckevm4hnnk8k"]
+[gd_scene load_steps=12 format=3 uid="uid://cckevm4hnnk8k"]
 
 [ext_resource type="Theme" uid="uid://cgrxveliicbi8" path="res://themes/button.tres" id="1_x3m4o"]
 [ext_resource type="Script" path="res://scenes/buttons/ButtonClicker.gd" id="2_pu3a2"]
 [ext_resource type="Texture2D" uid="uid://bb1ch32bxbd43" path="res://assets/images/ui/favicon.png" id="3_7omu3"]
+[ext_resource type="StyleBox" uid="uid://dc5o608cwl0h4" path="res://themes/ButtonClicker.tres" id="3_d4g11"]
 [ext_resource type="Script" path="res://scenes/buttons/LabelValue.gd" id="3_si7yg"]
+[ext_resource type="StyleBox" uid="uid://dx4dtm5phsmgq" path="res://themes/ButtonClickerPressed.tres" id="4_33x64"]
+[ext_resource type="StyleBox" uid="uid://vjtxoqynrqki" path="res://themes/ButtonClickerHover.tres" id="4_b0h1d"]
+[ext_resource type="StyleBox" uid="uid://sq3u18qe2ice" path="res://themes/ButtonClickerDisabled.tres" id="5_oq8o2"]
 [ext_resource type="Script" path="res://scenes/buttons/LabelPrice.gd" id="5_x6g7p"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g428h"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.137255, 0.670588, 0.368627, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-corner_detail = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h6cv"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.952941, 0.611765, 0.0705882, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-corner_detail = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eimq6"]
-bg_color = Color(0.027451, 0.713726, 0.435294, 0.45098)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhswt"]
-draw_center = false
-corner_detail = 16
+[ext_resource type="StyleBox" uid="uid://boqn7cn3qrrsg" path="res://themes/ButtonClickerFocus.tres" id="6_pb27m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwirm"]
 bg_color = Color(0.811936, 0.533565, 1.33038e-07, 1)
@@ -64,10 +33,11 @@ layout_mode = 0
 offset_right = 438.0
 offset_bottom = 110.0
 theme = ExtResource("1_x3m4o")
-theme_override_styles/normal = SubResource("StyleBoxFlat_g428h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0h6cv")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_eimq6")
-theme_override_styles/focus = SubResource("StyleBoxFlat_rhswt")
+theme_override_styles/normal = ExtResource("3_d4g11")
+theme_override_styles/hover = ExtResource("4_b0h1d")
+theme_override_styles/pressed = ExtResource("4_33x64")
+theme_override_styles/disabled = ExtResource("5_oq8o2")
+theme_override_styles/focus = ExtResource("6_pb27m")
 
 [node name="MarginContainer" type="MarginContainer" parent="Button"]
 layout_mode = 1

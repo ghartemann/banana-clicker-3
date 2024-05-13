@@ -215,5 +215,20 @@
 		"value": 5,
 		"type": "bpc",
 		"picture_path": "buffs/solidcursor.png"
+	},
+		{
+		"name": {
+			"fr": "Cheat de ouf",
+			"en": "Cheat de ouf"
+		},
+		"description": {
+			"fr": "Cheat de ouf",
+			"en": "Cheat de ouf"
+		},
+		"price": 1,
+		"price_multiplier": 1,
+		"value": 500,
+		"type": "bpc",
+		"picture_path": "ui/devil.png"
 	}
 ]

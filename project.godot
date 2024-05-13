@@ -11,18 +11,28 @@ config_version=5
 [application]
 
 config/name="bc3"
-run/main_scene="res://scenes/Main.tscn"
+run/main_scene="res://scenes/menu_screen/menu_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://assets/images/bg/bananabg.png"
 config/icon="res://scenes/icon.svg"
+run/size/initial_screen=0
 
 [display]
 
-window/size/viewport_width=2300
+window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
+window/size/initial_position_type=2
+window/size/initial_screen=1
+window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://assets/cursors/resized/left_ptr2.svg"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [rendering]
 
